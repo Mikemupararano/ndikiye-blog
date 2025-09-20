@@ -1,5 +1,22 @@
+<<<<<<< HEAD
 cat > .gitignore << 'EOF'
 # Byte-compiled / optimized / DLL files
+=======
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+# Virtual Environments
+venv/
+.venv/
+ENV/
+env/
+
+>>>>>>> 7a17715 (Add Django .gitignore)
 __pycache__/
 *.py[cod]
 *$py.class
@@ -61,6 +78,16 @@ db.sqlite3
 db.sqlite3-journal
 staticfiles/
 media/
+# Environment variables
+.env
+*.env
+.env.*
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
 # Flask stuff
 instance/
