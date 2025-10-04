@@ -24,7 +24,9 @@ class Post(models.Model):
         db_index=True,
         help_text="Optional series name, e.g. 'The Lost Heirs of Pfungwe'"
     )
-    slug = models.SlugField(max_length=250, unique=True)  # or unique_for_date='publish'
+    slug = models.SlugField(max_length=250,
+        unique_for_date='publish'
+    )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
