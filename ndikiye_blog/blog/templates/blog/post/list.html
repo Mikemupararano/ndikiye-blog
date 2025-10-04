@@ -8,7 +8,10 @@
   {% for post in posts %}
     <article>
       <h2>
-        <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a>
+       <a href="{{ post.get_absolute_url }}">
+        {{ post.title }}</a>
+
+        {% comment %} <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a> {% endcomment %}
       </h2>
       <p class="date">
         Published {{ post.publish|date:"M d, Y" }} by {{ post.author }}
