@@ -1,30 +1,42 @@
-from django.shortcuts import get_object_or_404,render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
-# from django.http import Http404
+
 # Create your views here.
+
 def post_detail(request, year, month, day, post):
+    """
+    Displays the details for a single published post identified
+    by its slug and publication date.
+    """
     post = get_object_or_404(
         Post,
-        id=id,
-        status=Post.Status.PUBLISHED,
         slug=post,
+        status=Post.Status.PUBLISHED,
         publish__year=year,
         publish__month=month,
-        publish__day=day
+        publish__day=day,
     )
-    # try:
-    #     post = Post.published.get(id=id)
-    # except Post.DoesNotExist:
-    #     raise Http404("No post found.")
-    return render(request,
-                  'blog/post/detail.html',
-                  {'post': post}
-                  )
+    return render(
+        request,
+        'blog/post/detail.html',
+        {'post': post}
+    )
+
+
 def post_list(request):
-    posts = Post.published.all()
-    return render(request,
-                  'blog/post/list.html',
-                  {'posts': posts}
-                  )
+    """
+    Displays a list of all published blog posts.
+    """
+    posts = Post.published.all()  # Uses your custom PublishedManager
+    return render(
+        request,
+        'blog/post/list.html',
+        {'posts': posts}
+    )
+
+
 def index(request):
+    """
+    Displays the blog's index page (or redirects/links to post list).
+    """
     return render(request, 'blog/index.html')
