@@ -28,7 +28,12 @@ def post_list(request):
     """
     Displays a list of all published blog posts.
     """
-    posts = Post.published.all()  # Uses your custom PublishedManager
+    post_list = Post.published.all()  # Uses your custom PublishedManager
+    # Pagination with 3 posts per page
+    paginator = Paginator(post_list, 3)  # Show 3 posts per page.
+    page_number = request.GET.get('page', 1)
+    posts = paginator.page(page_number)
+    
     return render(
         request,
         'blog/post/list.html',
