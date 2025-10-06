@@ -18,7 +18,9 @@
       </p>
       {{ post.body|truncatewords:30|linebreaks }}
     </article>
-  {% empty %}
-    <p>No posts yet.</p>
+  
+    
   {% endfor %}
+  {% include "pagination.html" with page=posts %}
+    
 {% endblock %}
