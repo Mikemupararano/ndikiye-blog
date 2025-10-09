@@ -1,6 +1,7 @@
 from django.core.paginator import EmptyPage,PageNotAnInteger , Paginator
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from django.views import ListView
 
 # Create your views here.
 
@@ -23,7 +24,15 @@ def post_detail(request, year, month, day, post):
         {'post': post}
     )
 
-
+class PostListView(ListView):
+    """
+    Alternative class-based view for listing published posts.
+    """
+    queryset = Post.published.all()  # Uses your custom PublishedManager
+    context_object_name = 'posts'
+    paginate_by = 3  # 3 posts per page
+    template_name = 'blog/post/list.html'
+    
 def post_list(request):
     """
     Displays a list of all published blog posts.
