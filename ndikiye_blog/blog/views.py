@@ -1,7 +1,7 @@
 from django.core.paginator import EmptyPage,PageNotAnInteger , Paginator
 from django.shortcuts import render, get_object_or_404
 from .models import Post
-from django.views import ListView
+from django.views.generic import ListView
 
 # Create your views here.
 
