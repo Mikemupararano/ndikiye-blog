@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-cat > .gitignore << 'EOF'
+
 # Byte-compiled / optimized / DLL files
 =======
 # Python

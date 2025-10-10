@@ -2,7 +2,8 @@ from django.core.paginator import EmptyPage,PageNotAnInteger , Paginator
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.views.generic import ListView
-from forms import EmailPostForm
+# from forms import EmailPostForm
+from .forms import EmailPostForm
 
 # Create your views here.
 
