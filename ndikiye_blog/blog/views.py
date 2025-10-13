@@ -23,10 +23,18 @@ def post_detail(request, year, month, day, post):
         publish__month=month,
         publish__day=day,
     )
+    # List of active comments for this post
+    comments = post.comments.filter(active=True)
+    # Form for users to comment
+    form = CommentForm()
     return render(
         request,
         'blog/post/detail.html',
-        {'post': post}
+        {
+            'post': post,
+            'comments': comments,
+            'form': form
+        }
     )
 
 class PostListView(ListView):
