@@ -14,4 +14,13 @@
         Share this post
     </a>
 </p>
+# Display total number of comments for a post
+# Display the list of comments 
+# Display the form for users to add a new comment
+{ % with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} comment {{ total_comments|pluralize }}
+    </h2>
+{ % endwith % }
+
 {% endblock content %}
