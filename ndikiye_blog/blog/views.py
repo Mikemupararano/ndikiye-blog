@@ -1,7 +1,7 @@
 from django.core.paginator import EmptyPage,PageNotAnInteger , Paginator
 from django.shortcuts import render, get_object_or_404, render
 from django.views.decorators.http import require_POST
-from django.views.decorators
+# from django.views.decorators
 from .models import Post
 from django.views.generic import ListView
 # from forms import EmailPostForm
