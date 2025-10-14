@@ -6,9 +6,9 @@ app_name = 'blog'  # required if you use namespace='blog' in project urls
 urlpatterns = [
     # Post list view - using class-based view
     
-    path('', views.PostListView.as_view(), name='post_list'),
+    # path('', views.PostListView.as_view(), name='post_list'),
     # Post list view - using function-based view
-    # path('', views.post_list, name='post_list'),
+     path('', views.post_list, name='post_list'),
     path(
         'post/<int:year>/<int:month>/<int:day>/<slug:post>/',
         views.post_detail,
