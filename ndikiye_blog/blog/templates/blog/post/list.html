@@ -13,13 +13,12 @@
 
         {% comment %} <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a> {% endcomment %}
       </h2>
+      <p class="tags">Tags: {{ post.tags.all|join:", " }}</p>
       <p class="date">
         Published {{ post.publish|date:"M d, Y" }} by {{ post.author }}
       </p>
       {{ post.body|truncatewords:30|linebreaks }}
     </article>
-  
-    
   {% endfor %}
   {% include "pagination.html" with page=page_obj %}
     
