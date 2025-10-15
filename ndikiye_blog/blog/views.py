@@ -8,6 +8,7 @@ from django.views.generic import ListView
 # from forms import EmailPostForm
 from .forms import CommentForm, EmailPostForm
 from django.core.mail import send_mail
+from taggit.models import Tag
 
 # Create your views here.
 

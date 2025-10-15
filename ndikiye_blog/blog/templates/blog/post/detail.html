@@ -11,19 +11,32 @@
 {{ post.body|linebreaks }}
 
 <p>
-    <a href="{% url 'blog:post_share' post.id %}">Share this post</a>
+    <a href="{% url 'blog:post_share' post.id %}">
+      Share this post
+    </a>
 </p>
 
+<h2>Similar posts</h2>
+{% for post in similar_posts %}
+<p>
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+There are no similar posts yet.
+{% endfor %}
 {# Display total number of comments for a post #}
 {% with comments.count as total_comments %}
-  <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+  <h2>{{ total_comments }} comment{{ total_comments|pluralize }}
+
+  </h2>
 {% endwith %}
 
 {# Display the list of comments #}
 {% for comment in comments %}
   <div class="comment">
     <p class="info">
-      Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
+      Comment {{ forloop.counter }} by {{ comment.name }}
+      {{ comment.created }}
     </p>
     {{ comment.body|linebreaks }}
   </div>
@@ -32,5 +45,5 @@
 {% endfor %}
 
 {# Display the form for users to add a new comment #}
-{% include "blog/includes/comment_form.html" %}
+{% include "blog/post/includes/comment_form.html" %}
 {% endblock content %}
