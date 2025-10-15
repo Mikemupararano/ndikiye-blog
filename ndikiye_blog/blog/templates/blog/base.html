@@ -1,4 +1,4 @@
-{ % load blog_tags %}
+{% load blog_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
         <h2 class="text-xl font-semibold mb-2">Sidebar</h2>
         <p>
           This is a blog for the descendents of Lancelot Mupararano!
-        I've written {{ total_posts }} posts so far.
+        I've written {% total_posts %} posts so far.
         </p>
       </aside>
     </main>
