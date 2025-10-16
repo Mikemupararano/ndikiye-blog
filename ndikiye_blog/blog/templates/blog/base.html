@@ -34,6 +34,8 @@
         </p>
         <h3> Latest Posts</h3>
         {% show_latest_posts 3 %}
+        {% comment %} # Add a horizontal line to separate sections {% endcomment %}
+        <hr class="my-4">
         <h3> Most Commented Posts</h3>
         {% get_most_commented_posts as most_commented_posts %}
         <ul>
@@ -43,7 +45,7 @@
           </li>
           {% endfor %}
         </ul>
-
+        
        
       </aside>
     </main>
