@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 
 {% block title %}My Blog{% endblock %}
 
@@ -13,26 +14,13 @@
     <p>No posts found.</p>
   {% endif %}
 
-  {% comment %} {# <p>Found {{ posts.paginator.count }} post{{ posts.paginator.count|pluralize }}</p> #}
-
-  #{#  {% endcomment %}
-  <ul>
-    {% for post in posts %}
-      <li>
-        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-        (Published {{ post.publish|date:"M d, Y" }} by {{ post.author }})
-      </li>
-    {% empty %}
-      <li>No posts found.</li>
-    {% endfor %}
-  </ul>
-  {% comment %} #} {% endcomment %}
+  {# <p>Found {{ posts.paginator.count }} post{{ posts.paginator.count|pluralize }}</p> #}
 
   {% for post in posts %}
     <article>
       <h2>
         <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-        {% comment %} {# <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a> #} {% endcomment %}
+        {# <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a> #}
       </h2>
 
       <p class="tags">
@@ -48,7 +36,7 @@
         Published {{ post.publish|date:"M d, Y" }} by {{ post.author }}
       </p>
 
-      {{ post.body|truncatewords:30|linebreaks }}
+      {{ post.body|markdown|truncatewords_html:30 }}
     </article>
     <hr>
   {% empty %}

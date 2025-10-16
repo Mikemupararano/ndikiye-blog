@@ -1,9 +1,10 @@
 from django import template
 from ..models import Post
 from django.db.models import Count
-import markdown
+import markdown 
 from django.utils.safestring import mark_safe
 
+register = template.Library()
 @register.filter(name='markdown')
 def markdown_format(text):
     """Convert text to markdown format."""
@@ -11,7 +12,7 @@ def markdown_format(text):
 
 
 # Create a custom template tag library
-register = template.Library()
+# register = template.Library()
 
 @register.simple_tag
 def total_posts():
