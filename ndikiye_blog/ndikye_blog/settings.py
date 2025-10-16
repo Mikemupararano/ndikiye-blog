@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-zfbo!y(k)0mfcrl0nabegky_(%1ffew$)ng1r_ga3u!gjxctr@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # settings.py (development)
-SITE_ID = 2  # use the localhost:8000 Site you already have
+SITE_ID = 1  # use the localhost:8000 Site you already have
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # (optional but helpful in dev)
 SECURE_SSL_REDIRECT = False
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'taggit',
