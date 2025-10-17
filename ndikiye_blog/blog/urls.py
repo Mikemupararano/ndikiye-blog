@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views  # import your view functions
+from .feeds import LatestPostsFeed
 
 app_name = 'blog'  # required if you use namespace='blog' in project urls
 
@@ -21,5 +22,6 @@ urlpatterns = [
     path(
         'post/<int:post_id>/comment/', views.post_comment, name='post_comment'
     ),
+    path('feed/', LatestPostsFeed(), name='post_feed'),
     # path('index/', views.index, name='index'),
 ]
